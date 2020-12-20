@@ -20,14 +20,14 @@ class SimulationEnvironment:
     PCR_kit_price: int  # price of PCR inspection kit(PCRキット1つの値段)
     GDP_per_person: int  # annual gross domestic product per person(国民一人あたりの年間GDP)
     percentage_of_infect_people: float  # percentage of people infect at the start of simulation(実験開始時の発症者の割合)
-    capacity_of_medical_care: float  # (人口に対する同時に医療を受けることができる割合)
-    lockdown_threshold: float  # (ロックダウンの意思決定を行う感染者数の割合)
-    lockdown_suppression_rate: float  # ロックダウン時の行動の抑制率、平常時から見て何割になるか
-    mean_of_slight_contact: int  # 1日あたり通常の人が軽度接触する人数の平均
-    number_of_cluster: int  # クラスタの生成トライアル数
-    probability_of_freeze_cluster: float  # 感染者が出た場合の凍結されるクラスタの割合
-    mean_of_cluster_size: int  # クラスタサイズの平均値
-    mean_of_onset_delay_days: int  # 感染から発症までの平均日数
+    capacity_of_medical_care: float  # capacity of medical care relative to the population(人口に対する同時に医療を受けることができる割合)
+    lockdown_threshold: float  # the threshold of making decision to lockdown(ロックダウンの意思決定を行う感染者数の割合)
+    lockdown_suppression_rate: float  # the rate of behavioral suppression when lockdown(ロックダウン時の行動の抑制率、平常時から見て何割になるか)
+    mean_of_slight_contact: int  # (1日あたり通常の人が軽度接触する人数の平均)
+    number_of_cluster: int  # number of cluster(クラスタの生成数)
+    probability_of_freeze_cluster: float  # ratio of suppressed cluster(感染者が出た場合の凍結されるクラスタの割合)
+    mean_of_cluster_size: int  # mean of cluster size(クラスタサイズの平均値)
+    mean_of_onset_delay_days: int  # mean number of days from infection to onset(感染から発症までの平均日数)
 
 
 SIMULATION_ENV = SimulationEnvironment(

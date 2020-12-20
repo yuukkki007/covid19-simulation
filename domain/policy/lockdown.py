@@ -14,6 +14,7 @@ from lib.log import logger
 
 def lockdown(human_dict: Dict[str, Human], cluster_dict: Dict[str, Cluster]) -> SimulationResult:
     """
+    simulation of lockdown scenario
     ロックダウンシナリオのシミュレーション
     """
     logger.info("start evaluation lockdown scenario")
@@ -158,7 +159,6 @@ def lockdown(human_dict: Dict[str, Human], cluster_dict: Dict[str, Cluster]) -> 
             if human_dict[human_key].onset is True:
                 counts += 1
         threshold = int(SIMULATION_ENV.population * SIMULATION_ENV.lockdown_threshold)
-        print(counts)
         if (threshold < counts) and (lockdown_flg is False):
             lockdown_flg = True
             logger.info("lockdown triggered!")
@@ -208,7 +208,6 @@ def lockdown(human_dict: Dict[str, Human], cluster_dict: Dict[str, Cluster]) -> 
         else:
             cumulative = result.cumulative_serious_cases_transition[-1] + aggravated_count
             result.cumulative_serious_cases_transition.append(cumulative)
-            print(cumulative)
 
         # 経済損失の計上
         result.economic_losses_transition.append(economic_loss)
@@ -217,6 +216,5 @@ def lockdown(human_dict: Dict[str, Human], cluster_dict: Dict[str, Cluster]) -> 
         else:
             cumulative = result.cumulative_economic_losses_transition[-1] + economic_loss
             result.cumulative_economic_losses_transition.append(cumulative)
-            print(cumulative)
 
     return result

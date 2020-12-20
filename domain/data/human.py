@@ -13,19 +13,19 @@ class Human:
     age: int  # age(年齢)
     masked: bool  # wearing mask or not(マスク着用の有無)
     onset: bool  # onset or not(発症中かどうか)
-    onset_delay_days: int  # 感染から発症までの日数
-    onset_days: int  # 発症後経過日数
-    infected: bool  # 感染しているか
-    passed_day_after_infected: int  # 感染からの経過日数
-    know_infection: bool  # 感染していることを知っているか
-    has_antibodies: bool  # 抗体を持っているか
+    onset_delay_days: int  # number of days from infection to onset(感染から発症までの日数)
+    onset_days: int  # number of days elapsed since onset(発症後経過日数)
+    infected: bool  # infect or not(感染しているか)
+    passed_day_after_infected: int  # number of days elapsed since infect(感染からの経過日数)
+    know_infection: bool  # know that I am infected or not(感染していることを知っているか)
+    has_antibodies: bool  # has antibodies or does not(抗体を持っているか)
     random_meet_per_day: int  # slight contact per day(1日あたりのすれ違いなどの接触人数)
-    cluster_ids: List  # 所属しているクラスターのidリスト
-    freeze: bool  # 隔離中か
-    freeze_remaining: int  # 隔離残日数
-    pcr: bool  # 直近10日間pcr実施有無
-    passed_day_after_pcr: int
-    does_lock_down: bool  # lockdown時に従うか
+    cluster_ids: List  # cluster id list of that belongs 所属しているクラスターのidリスト
+    freeze: bool  # isolated or not(隔離中か)
+    freeze_remaining: int  # remaining days be isolated(隔離残日数)
+    pcr: bool  # take pcr in 10 days or not(直近10日間pcr実施有無)
+    passed_day_after_pcr: int  # number of days elapsed since PCR test(PCR検査実施後経過日数)
+    does_lock_down: bool  # follow at lockdown or not(lockdown時に従うか)
 
     def join_to_cluster(self, cluster_id: str):
         self.cluster_ids.append(cluster_id)
@@ -39,6 +39,7 @@ class HumanFactory:
         return age based on distribution, you can implement other distribution if you want.
         人口の年齢分布に基づいて年齢を返却する、日本の分布に基づいているが必要であれば別の分布を実装しても良い
         # FIXME 時間がないため一様分布とした
+        # FIXME uniform distribution, because of implementation time.
         """
         return np.random.randint(0, 90)
 

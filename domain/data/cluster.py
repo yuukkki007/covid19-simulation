@@ -14,11 +14,11 @@ from lib.log import logger
 class Cluster:
     id: str  # クラスタのID
     people: List[Human]  # people instances belongs to this cluster(クラスターに所属する人)
-    size: int  # クラスタのサイズ
-    able_to_freeze: bool  # 凍結するクラスターかどうか
-    freeze: bool = field(default=False)  # 凍結クラスタ
-    freeze_remaining: int = field(default=0)  # 凍結の場合の解凍日数
-    is_full: bool = field(default=False)  # 満員フラグ
+    size: int  # size of this cluster(クラスタのサイズ)
+    able_to_freeze: bool  # whether the cluster is suppress or not(凍結するクラスターかどうか)
+    freeze: bool = field(default=False)  # suppress or not(凍結クラスタ)
+    freeze_remaining: int = field(default=0)  # the number of days to action(凍結の場合の解凍日数)
+    is_full: bool = field(default=False)  # is full(満員フラグ)
 
     def add(self, human: Human) -> bool:
         """
@@ -35,6 +35,7 @@ class Cluster:
 
     def check_duplicate(self, human: Human) -> bool:
         """
+        check duplicate or not.
         people属性の重複チェックを行う
         """
         human_id = human.id

@@ -14,6 +14,7 @@ from lib.log import logger
 
 def distribute_pcr_kit(human_dict: Dict[str, Human], cluster_dict: Dict[str, Cluster]) -> SimulationResult:
     """
+    simulation of distribute pcr kit scenario
     PCR検査キット配布シナリオのシミュレーション
     """
     logger.info("start evaluation PCR distribute scenario")
@@ -157,7 +158,6 @@ def distribute_pcr_kit(human_dict: Dict[str, Human], cluster_dict: Dict[str, Clu
             if human_dict[human_key].onset is True:
                 counts += 1
         threshold = int(SIMULATION_ENV.population * SIMULATION_ENV.lockdown_threshold)
-        print(counts)
         if threshold < counts:
             logger.info("pcr!!!")
             for human_key in human_dict.keys():
@@ -218,7 +218,6 @@ def distribute_pcr_kit(human_dict: Dict[str, Human], cluster_dict: Dict[str, Clu
         else:
             cumulative = result.cumulative_serious_cases_transition[-1] + aggravated_count
             result.cumulative_serious_cases_transition.append(cumulative)
-            print(cumulative)
 
         # 経済損失の計上
         result.economic_losses_transition.append(economic_loss)
@@ -227,6 +226,5 @@ def distribute_pcr_kit(human_dict: Dict[str, Human], cluster_dict: Dict[str, Clu
         else:
             cumulative = result.cumulative_economic_losses_transition[-1] + economic_loss
             result.cumulative_economic_losses_transition.append(cumulative)
-            print(cumulative)
 
     return result
