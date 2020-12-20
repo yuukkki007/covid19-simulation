@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  app:
+    tty: true
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: covid19-simulation-python
+    volumes:
+      - .:/usr/local/src/covid19-simulation
