@@ -4,7 +4,7 @@ This repository was created to get experimental result for the advent calendar.
 
 I thought it would be an interesting material to consider to what policy is would be beneficial that  simulating some policies(lockdown, distribute PCR test kit) and evaluate these result.
 
-The initial version is limited in time(Because of I come up with idea two days before the deadline).
+The initial version is limited in time(Because of I come up with an idea of the advent calendar two days before the deadline).
 
 So, there are likely to be problems with readability of the code, messed structured, and so on.
 
